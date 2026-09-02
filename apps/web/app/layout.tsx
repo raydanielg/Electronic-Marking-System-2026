@@ -1,14 +1,27 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import { Inter, Plus_Jakarta_Sans } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@workspace/ui/lib/utils";
+import { cn } from "@workspace/ui/lib/utils"
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+export const metadata = {
+  title: "Electronic Marking System",
+  description: "Digital examination management platform",
+  icons: {
+    icon: "/assets/social-media (1).png",
+    shortcut: "/assets/social-media (1).png",
+    apple: "/assets/social-media (1).png",
+  },
+}
 
-const fontMono = Geist_Mono({
+const fontSans = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-sans",
+})
+
+const fontHeading = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-heading",
 })
 
 export default function RootLayout({
@@ -20,7 +33,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
+      className={cn("antialiased", fontSans.variable, fontHeading.variable)}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
